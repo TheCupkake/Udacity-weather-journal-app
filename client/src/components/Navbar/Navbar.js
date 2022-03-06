@@ -39,7 +39,7 @@ const Navbar = () => {
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
             <Link to="/" className = {classes.brandContainer}>
-                <img src={ballersHubText} alt="icon" height="55px" />
+                <img className={classes.title} src={ballersHubText} alt="icon" height="55px" />
                 <img className={classes.image} src = {ballersHubLogo} alt="memories" height="50px"/>
 
             </Link>

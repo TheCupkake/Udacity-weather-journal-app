@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Paper, Typography, CircularProgress, Divider, Button} from '@material-ui/core';
+import { Paper, Typography, CircularProgress, Divider, Button } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import LikesAndDelete from '../Likes/Likes'
 
@@ -45,10 +45,11 @@ const PostDetails = () => {
 
     const openPost = (_id) => history(`/posts/${_id}`);
     return (
+        
         <Paper style={{padding: '20px', borderRadius: '15px'}} elevation={6}>
             <div className={classes.card}>
                 <div className={classes.section}>
-                  <Typography variant="h3" component="h2">{post.title}</Typography>
+                  <Typography variant="h3" component="h2" className={classes.title}>{post.title}</Typography>
                   {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
                     <Button style={{marginTop: '10px'}} className = {classes.searchButton} onClick={editPost} variant="contained" color="primary">Edit</Button>
                   )}
@@ -56,7 +57,7 @@ const PostDetails = () => {
                   <Divider style={{ margin: '20px 0' }} />
                   <Typography gutterBottom variant="h6" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
                   <Divider style={{ margin: '20px 0' }} />
-                  <Typography gutterBottom variant="body1" component="p" dangerouslySetInnerHTML={{__html: post.sanitizedHtml}}></Typography>
+                  <Typography gutterBottom variant="body1" component="p" className={classes.content} dangerouslySetInnerHTML={{__html: post.sanitizedHtml}}></Typography>
                   <Divider style={{ margin: '20px 0' }} />
                   <Typography variant="h6">Created by: <strong>{post.name}</strong></Typography>
                   <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
@@ -93,6 +94,7 @@ const PostDetails = () => {
             )}
 
         </Paper>
+        
         
     )
 }

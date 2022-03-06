@@ -6,14 +6,14 @@ export default makeStyles((theme) => ({
     objectFit: 'cover',
     width: '100%',
     maxHeight: '600px',
-
+    
   },
   card: {
     display: 'flex',
     width: '100%',
     [theme.breakpoints.down('sm')]: {
       flexWrap: 'wrap',
-      flexDirection: 'column',
+      flexDirection: 'column-reverse',
     },
   },
   section: {
@@ -21,15 +21,20 @@ export default makeStyles((theme) => ({
     width: '50%',
     margin: '10px',
     flex: 1,
+    [theme.breakpoints.down('sm')]: {
+      width: '95%'
+    },
   },
   imageSection: {
-    width: '50%',
+     width: '50%',
     marginLeft: '20px',
     display: 'flex',
     justifyContent: 'flex-end',
-    [theme.breakpoints.down('sm')]: {
-      marginLeft: 0,
-    },
+     [theme.breakpoints.down('sm')]: {
+       marginLeft: 0,
+       width: '100%',
+       justifyContent: 'center'
+     },
   },
   recommendedPosts: {
     display: 'flex',
@@ -42,7 +47,10 @@ export default makeStyles((theme) => ({
   },
   commentsOuterContainer: {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
   },
   commentsInnerContainer: {
     height: '200px',
@@ -55,4 +63,17 @@ export default makeStyles((theme) => ({
     right: '20px',
     color: 'white',
   },
+  title: {
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.5em',
+      fontWeight: 500
+    }
+  },
+  '@global': {
+
+    'p > img': {
+      width: '95%'
+    }
+  }
+  
 }));
